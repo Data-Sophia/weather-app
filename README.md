@@ -33,7 +33,6 @@ weather-app/
 ├── styles.css
 ├── app.js
 └── README.md
-
 ```
 
 ## Application Preview

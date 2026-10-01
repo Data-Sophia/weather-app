@@ -33,3 +33,6 @@ weather-app/
 ├── styles.css
 ├── app.js
 └── README.md
+
+<img width="865" height="672" alt="image" src="https://github.com/user-attachments/assets/56ef9e85-503c-4278-81a4-9be478575cee" />
+

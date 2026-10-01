@@ -34,14 +34,6 @@ weather-app/
 ├── app.js
 └── README.md
 
-## Project Structure
-
-```text
-weather-app/
-├── index.html
-├── styles.css
-├── app.js
-└── README.md
 ```
 
 ## Application Preview

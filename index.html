@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f3f5f2" />
+  <meta name="description" content="A clear, detailed weather forecast for wherever you are." />
+  <title>Outside — Local Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Outside weather home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>outside<span class="brand-period">.</span></span></a>
+      <div class="topbar-actions">
+        <button class="unit-toggle" id="unit-toggle" type="button" aria-label="Switch temperature units"><span class="unit-option is-active" data-unit="celsius">°C</span><span class="unit-divider"></span><span class="unit-option" data-unit="fahrenheit">°F</span></button>
+        <button class="icon-button" id="locate-button" type="button" aria-label="Use my current location" title="Use my current location"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M19.4 15a7.8 7.8 0 0 0 0-6M4.6 9a7.8 7.8 0 0 0 0 6M15 4.6a7.8 7.8 0 0 0-6 0M9 19.4a7.8 7.8 0 0 0 6 0"></path></svg></button>
+      </div>
+    </header>
+    <section class="search-row" aria-label="Find a location">
+      <form class="search-form" id="search-form" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.2 4.2"></path></svg><label class="visually-hidden" for="city-search">Search city or town</label><input id="city-search" type="search" placeholder="Search city or town" autocomplete="off" /><button class="search-submit" type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></form>
+      <p class="updated-label" id="updated-label">WEATHER, WHERE YOU ARE</p>
+    </section>
+    <div class="status-message" id="status-message" role="status" aria-live="polite"></div>
+    <section class="weather-layout" id="weather-content" aria-label="Current weather and forecast" hidden>
+      <section class="current-panel" aria-labelledby="location-name">
+        <div class="current-copy"><p class="eyebrow" id="current-date">YOUR LOCAL FORECAST</p><h1 id="location-name">Loading...</h1><p class="current-condition" id="current-condition">Checking the sky</p></div>
+        <div class="current-reading"><div class="hero-weather-icon" id="hero-weather-icon" aria-hidden="true"></div><p class="temperature"><span id="current-temperature">--</span><span class="degree-mark">°</span></p></div>
+        <div class="high-low"><span>H <strong id="today-high">--°</strong></span><span class="high-low-divider"></span><span>L <strong id="today-low">--°</strong></span></div>
+        <div class="sunline" aria-hidden="true"><span class="sunline-icon"></span><span></span></div>
+        <p class="sun-times"><span>Sunrise <strong id="sunrise-time">--:--</strong></span><span>Sunset <strong id="sunset-time">--:--</strong></span></p>
+        <div class="landscape" aria-hidden="true"><div class="landscape-sun"></div><svg class="landscape-art" viewBox="0 0 740 180" preserveAspectRatio="none"><path class="hill hill-back" d="M0 118 82 78l53 28 89-76 104 92 79-45 99 62 78-90 156 87v44H0Z"></path><path class="hill hill-front" d="m0 130 79-29 64 39 87-54 70 37 72-21 95 37 90-58 95 53 88-32v78H0Z"></path><path class="field-line" d="M426 180c20-30 63-51 130-63M460 180c28-29 71-48 131-54M506 180c29-24 68-39 118-44"></path><path class="field-line field-line-two" d="M140 180c-4-24-21-40-51-50m75 50c-1-20-10-36-32-49m72 49c-2-20-4-34-16-45"></path></svg></div>
+      </section>
+      <section class="forecast-panel" aria-labelledby="forecast-heading">
+        <div class="section-heading"><div><p class="eyebrow">THE NEXT FEW DAYS</p><h2 id="forecast-heading">Forecast</h2></div><span class="forecast-date" id="forecast-date"></span></div>
+        <div class="forecast-list" id="forecast-list"></div>
+        <div class="details-heading"><p class="eyebrow">AT A GLANCE</p><span>RIGHT NOW</span></div>
+        <div class="details-grid">
+          <article class="detail-item"><div class="detail-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M8.5 6.5 12 3l3.5 3.5M8.5 17.5 12 21l3.5-3.5"></path></svg><span>Feels like</span></div><strong id="feels-like">--°</strong><small id="feels-description">In the shade</small></article>
+          <article class="detail-item"><div class="detail-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h12a3 3 0 1 0-3-3M2 12h17a2.5 2.5 0 1 1-2.5 2.5M4 16h9a2.5 2.5 0 1 1-2.5 2.5"></path></svg><span>Wind</span></div><strong id="wind-speed">-- <small>km/h</small></strong><small id="wind-direction">Light breeze</small></article>
+          <article class="detail-item"><div class="detail-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5s-6.5 7-6.5 11.4a6.5 6.5 0 0 0 13 0C18.5 10.5 12 3.5 12 3.5Z"></path><path d="M9 15a3 3 0 0 0 3 3"></path></svg><span>Humidity</span></div><strong id="humidity">--%</strong><small id="humidity-description">Comfortable</small></article>
+          <article class="detail-item"><div class="detail-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span>UV index</span></div><strong id="uv-index">--</strong><small id="uv-description">Low</small></article>
+          <article class="detail-item detail-item-wide"><div class="detail-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M6 15a6 6 0 1 1 12 0M12 3v3m-7.36.64 2.12 2.12m10.48 0 2.12-2.12"></path></svg><span>Daylight</span></div><strong id="daylight-duration">--h --m</strong><small>Sunrise to sunset</small></article>
+        </div>
+        <p class="attribution">Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></p>
+      </section>
+    </section>
+    <footer class="page-footer"><span>Take the day as it comes.</span><span id="footer-location">LOCAL WEATHER</span></footer>
+  </main>
+</body>
+</html>

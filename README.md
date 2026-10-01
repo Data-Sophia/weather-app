@@ -34,5 +34,21 @@ weather-app/
 ├── app.js
 └── README.md
 
-<img width="865" height="672" alt="image" src="https://github.com/user-attachments/assets/56ef9e85-503c-4278-81a4-9be478575cee" />
+## Project Structure
+
+```text
+weather-app/
+├── index.html
+├── styles.css
+├── app.js
+└── README.md
+```
+
+## Application Preview
+
+<p align="center">
+<img
+ src="https://github.com/user-attachments/assets/c47b1779-db5a-4c33-89df-c07a3a05e4b6" />
+
+
 
